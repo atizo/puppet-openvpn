@@ -9,4 +9,9 @@ class openvpn::base {
         hasrestart => true, 
         require => Package['openvpn'],
     } 
+    file{'/etc/openvpn/clients':
+        ensure => directory,
+        owner => root, group => 0, mode => 0755;
+    }
+
 }
