@@ -22,6 +22,7 @@ define openvpn::newserver (
     } else {
         openvpn::deployscript { "${name}-up.sh": 
         ensure => 'absent',
+	}
     }
 
     if $uprestart_script {
@@ -32,6 +33,7 @@ define openvpn::newserver (
     } else {
         openvpn::deployscript { "${name}-up-restart.sh":
         ensure => 'absent',
+	}
     }
 
     if $up_script {
@@ -42,6 +44,7 @@ define openvpn::newserver (
     } else {
         openvpn::deployscript { "${name}-down-pre.sh":
         ensure => 'absent',
+	}
     }
 
     if $up_script {
@@ -52,6 +55,6 @@ define openvpn::newserver (
     } else {
         openvpn::deployscript { "${name}-down.sh":
         ensure => 'absent',
+	}
     }
-
 }
