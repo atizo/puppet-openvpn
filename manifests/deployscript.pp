@@ -1,5 +1,5 @@
 define openvpn::deployscript (
-    ensure => 'present'
+    ensure = 'present'
 )
 {
     # deploy script
@@ -17,6 +17,7 @@ define openvpn::deployscript (
     if $ensure == 'absent' {
         file{"/etc/openvpn/${name}":
         ensure => absent,
+    	}
     }
 
 }
