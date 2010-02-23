@@ -1,8 +1,8 @@
 define openvpn::newserver (
-    up_script => false
-    uprestart_script => false
-    downpre_script => false
-    down_script => false
+    up_script = false,
+    uprestart_script = false,
+    downpre_script = false,
+    down_script = false
 )
 {
     file{"/etc/openvpn/${name}.conf":
