@@ -16,7 +16,7 @@ define openvpn::newserver (
 
     if $up_script {
         openvpn::deployscript { "${name}-up.sh": 
-	    ensure => 'present'
+	    ensure => 'present',
             require => File["/etc/openvpn/${name}.conf"],
         }
     } else {
@@ -26,7 +26,7 @@ define openvpn::newserver (
 
     if $uprestart_script {
         openvpn::deployscript { "${name}-up-restart.sh":
-            ensure => 'present'
+            ensure => 'present',
             require => File["/etc/openvpn/${name}.conf"],
         }
     } else {
@@ -36,7 +36,7 @@ define openvpn::newserver (
 
     if $up_script {
         openvpn::deployscript { "${name}-down-pre.sh":
-            ensure => 'present'
+            ensure => 'present',
             require => File["/etc/openvpn/${name}.conf"],
         }
     } else {
@@ -46,7 +46,7 @@ define openvpn::newserver (
 
     if $up_script {
         openvpn::deployscript { "${name}-down.sh":
-            ensure => 'present'
+            ensure => 'present',
             require => File["/etc/openvpn/${name}.conf"],
         }
     } else {
