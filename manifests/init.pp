@@ -14,8 +14,8 @@
 
 class openvpn {
     case $operatingsystem {
-        openbsd: { include openvpn::base::openbsd }
-        default: { include openvpn::base }
+        openbsd: { include openvpn::server::openbsd }
+        default: { include openvpn::server }
     }
     if $use_munin {
     #    include openvpn::munin

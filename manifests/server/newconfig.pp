@@ -1,8 +1,8 @@
-define openvpn::newserver (
-    up_script = false,
-    uprestart_script = false,
-    downpre_script = false,
-    down_script = false
+define openvpn::server::newconfig(
+    $up_script = false,
+    $uprestart_script = false,
+    $downpre_script = false,
+    $down_script = false
 )
 {
     file{"/etc/openvpn/${name}.conf":
@@ -15,45 +15,45 @@ define openvpn::newserver (
     }
 
     if $up_script {
-        openvpn::deployscript { "${name}-up.sh": 
+        openvpn::server::deployscript { "${name}-up.sh": 
 	    ensure => 'present',
             require => File["/etc/openvpn/${name}.conf"],
         }
     } else {
-        openvpn::deployscript { "${name}-up.sh": 
+        openvpn::server::deployscript { "${name}-up.sh": 
         ensure => 'absent',
 	}
     }
 
     if $uprestart_script {
-        openvpn::deployscript { "${name}-up-restart.sh":
+        openvpn::server::deployscript { "${name}-up-restart.sh":
             ensure => 'present',
             require => File["/etc/openvpn/${name}.conf"],
         }
     } else {
-        openvpn::deployscript { "${name}-up-restart.sh":
+        openvpn::server::deployscript { "${name}-up-restart.sh":
         ensure => 'absent',
 	}
     }
 
     if $up_script {
-        openvpn::deployscript { "${name}-down-pre.sh":
+        openvpn::server::deployscript { "${name}-down-pre.sh":
             ensure => 'present',
             require => File["/etc/openvpn/${name}.conf"],
         }
     } else {
-        openvpn::deployscript { "${name}-down-pre.sh":
+        openvpn::server::deployscript { "${name}-down-pre.sh":
         ensure => 'absent',
 	}
     }
 
     if $up_script {
-        openvpn::deployscript { "${name}-down.sh":
+        openvpn::server::deployscript { "${name}-down.sh":
             ensure => 'present',
             require => File["/etc/openvpn/${name}.conf"],
         }
     } else {
-        openvpn::deployscript { "${name}-down.sh":
+        openvpn::server::deployscript { "${name}-down.sh":
         ensure => 'absent',
 	}
     }

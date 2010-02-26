@@ -1,5 +1,5 @@
-define openvpn::deployscript (
-    ensure = 'present'
+define openvpn::server::deployscript (
+    $ensure = 'present'
 )
 {
     # deploy script

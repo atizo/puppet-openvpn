@@ -1,10 +1,6 @@
-class openvpn::base { 
+class openvpn::server { 
     package{'openvpn': 
         ensure => installed, 
-    }
-    # create an own module for this dependency"
-    package{'openssl':
-        ensure => installed,
     }
     service{'openvpn': 
         ensure => running, 
@@ -17,5 +13,8 @@ class openvpn::base {
         ensure => directory,
         owner => root, group => 0, mode => 0755;
     }
-
+    file{'/var/log/openvpn':
+        ensure => directory,
+        owner => root, group => 0, mode => 0755;
+    }
 }
