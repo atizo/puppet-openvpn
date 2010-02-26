@@ -1,4 +1,4 @@
-class openvpn::base::openbsd inherits openvpn::base {
+class openvpn::server::openbsd inherits openvpn::server {
     Service['openvpn']{
         hasrestart => false,
         hasstatus => false,

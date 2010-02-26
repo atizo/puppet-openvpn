@@ -2,7 +2,7 @@ define openvpn::server::client_config::fixed_ip(
     $client_config_dir = '/etc/openvpn/clients',
     $subnet_mask = '255.255.255.0',
     $default_gateway,
-    $client_ip,
+    $client_ip
 ){
     if ! $default_gateway {
         $default_gateway = ''
