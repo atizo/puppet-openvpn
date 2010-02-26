@@ -1,7 +1,11 @@
 class openvpn::base { 
     package{'openvpn': 
         ensure => installed, 
-    } 
+    }
+    # create an own module for this dependency"
+    package{'openssl':
+        ensure => installed,
+    }
     service{'openvpn': 
         ensure => running, 
         enable => true, 
