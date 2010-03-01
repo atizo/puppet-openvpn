@@ -2,7 +2,7 @@ class openvpn::server {
     package{'openvpn': 
         ensure => installed, 
     }
-    service{'openvpn': 
+    service{'openvpn':
         ensure => running, 
         enable => true, 
         hasstatus => true, 
