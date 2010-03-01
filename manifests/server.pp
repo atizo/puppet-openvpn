@@ -13,6 +13,10 @@ class openvpn::server {
         ensure => directory,
         owner => root, group => 0, mode => 0755;
     }
+    file{'/etc/openvpn/keys':
+       ensure => directory,
+       owner => root, group => 0, mode => 0755;
+    }
     file{'/var/log/openvpn':
         ensure => directory,
         owner => root, group => 0, mode => 0755;
