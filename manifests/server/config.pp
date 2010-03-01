@@ -13,10 +13,13 @@ define openvpn::server::config(
         owner => root, group => 0, mode => 0644;
     }
 
+    Ppenvpn::Server::Script{
+        require => File["/etc/openvpn/$name.conf"],
+    }
+
     if $up_script {
         openvpn::server::script{"${name}-up.sh": 
 	    ensure => 'present',
-            require => File["/etc/openvpn/$name.conf"],
         }
     } else {
         openvpn::server::script{"${name}-up.sh": 
@@ -27,7 +30,6 @@ define openvpn::server::config(
     if $uprestart_script {
         openvpn::server::script{"${name}-up-restart.sh":
             ensure => 'present',
-            require => File["/etc/openvpn/$name.conf"],
         }
     } else {
         openvpn::server::script{"${name}-up-restart.sh":
@@ -38,7 +40,6 @@ define openvpn::server::config(
     if $downpre_script {
         openvpn::server::script{"${name}-down-pre.sh":
             ensure => 'present',
-            require => File["/etc/openvpn/$name.conf"],
         }
     } else {
         openvpn::server::script{"${name}-down-pre.sh":
@@ -49,7 +50,6 @@ define openvpn::server::config(
     if $down_script {
         openvpn::server::script{"${name}-down.sh":
             ensure => 'present',
-            require => File["/etc/openvpn/$name.conf"],
         }
     } else {
         openvpn::server::script{"${name}-down.sh":
