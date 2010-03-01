@@ -16,7 +16,7 @@ define openvpn::server::config(
     if $up_script {
         openvpn::server::script{"${name}-up.sh": 
 	    ensure => 'present',
-            require => File["/etc/openvpn/$name.conf"],
+            require => File['/etc/openvpn/$name.conf'],
         }
     } else {
         openvpn::server::script{"${name}-up.sh": 
@@ -27,32 +27,32 @@ define openvpn::server::config(
     if $uprestart_script {
         openvpn::server::script{"${name}-up-restart.sh":
             ensure => 'present',
-            require => File["/etc/openvpn/$name.conf"],
+            require => File['/etc/openvpn/$name.conf'],
         }
     } else {
-        openvpn::server::deployscript{"${name}-up-restart.sh":
+        openvpn::server::script{"${name}-up-restart.sh":
             ensure => 'absent',
 	}
     }
 
     if $downpre_script {
-        openvpn::server::deployscript{"${name}-down-pre.sh":
+        openvpn::server::script{"${name}-down-pre.sh":
             ensure => 'present',
-            require => File["/etc/openvpn/$name.conf"],
+            require => File['/etc/openvpn/$name.conf'],
         }
     } else {
-        openvpn::server::deployscript{"${name}-down-pre.sh":
+        openvpn::server::script{"${name}-down-pre.sh":
             ensure => 'absent',
 	}
     }
 
     if $down_script {
-        openvpn::server::deployscript{"${name}-down.sh":
+        openvpn::server::script{"${name}-down.sh":
             ensure => 'present',
-            require => File["/etc/openvpn/$name.conf"],
+            require => File['/etc/openvpn/$name.conf'],
         }
     } else {
-        openvpn::server::deployscript{"${name}-down.sh":
+        openvpn::server::script{"${name}-down.sh":
             ensure => 'absent',
 	}
     }
