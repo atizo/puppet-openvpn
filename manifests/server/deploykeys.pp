@@ -7,7 +7,6 @@ define openvpn::server::deploykeys (
                 "puppet://$server/modules/site-openvpn/${fqdn}/keys/${name}",
             ],
             owner => root, group => 0, mode => 0644,
-	    ensure => present,
         }
     } 
 
