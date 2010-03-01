@@ -14,7 +14,6 @@ define openvpn::server::newconfig(
         owner => root, group => 0, mode => 0644;
     }
 
-
     if $up_script {
         openvpn::server::deployscript { "${name}-up.sh": 
 	    ensure => 'present',
