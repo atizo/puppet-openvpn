@@ -36,7 +36,7 @@ define openvpn::server::newconfig(
 	}
     }
 
-    if $up_script {
+    if $downpre_script {
         openvpn::server::deployscript { "${name}-down-pre.sh":
             ensure => 'present',
             require => File["/etc/openvpn/${name}.conf"],
@@ -47,7 +47,7 @@ define openvpn::server::newconfig(
 	}
     }
 
-    if $up_script {
+    if $down_script {
         openvpn::server::deployscript { "${name}-down.sh":
             ensure => 'present',
             require => File["/etc/openvpn/${name}.conf"],
