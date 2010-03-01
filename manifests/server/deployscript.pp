@@ -1,5 +1,5 @@
 define openvpn::server::deployscript (
-    $ensure = 'present'
+    $ensure = 'absent'
 )
 {
     # deploy script
