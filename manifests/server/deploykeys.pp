@@ -13,7 +13,7 @@ define openvpn::server::deploykeys (
 
     if $name =~ /.*\.key$/{
         File["/etc/openvpn/keys/${name}"]{
-	owner => root, group => 0, mode => 0600,
+	    mode => 0600,
         } 
     }
 }
