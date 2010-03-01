@@ -12,7 +12,7 @@ define openvpn::server::key(
         File["/etc/openvpn/keys/$name"]{
 	    mode => 0600,
         } 
-    } else{
+    } else {
         File["/etc/openvpn/keys/$name"]{
 	    mode => 0644,
         } 
