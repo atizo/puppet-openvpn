@@ -8,7 +8,7 @@ define openvpn::server::script(
                 "puppet://$server/modules/site-openvpn/$name",
             ],
             ensure => $ensure,
-            owner => root, group => 0, mode => 0644;
+            owner => root, group => 0, mode => 0755;
         }
     }
     if $ensure == 'absent' {
