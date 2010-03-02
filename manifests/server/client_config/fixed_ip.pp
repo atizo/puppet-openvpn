@@ -4,9 +4,6 @@ define openvpn::server::client_config::fixed_ip(
     $default_gateway,
     $client_ip
 ){
-    if ! $default_gateway {
-        $default_gateway = ''
-    }
     file{"$client_config_dir/$name":
         content => "ifconfig-push $client_ip $subnet_mask $default_gateway",
         require => File['/etc/openvpn/clients'],
