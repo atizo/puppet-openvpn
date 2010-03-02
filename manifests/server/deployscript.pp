@@ -8,7 +8,7 @@ define openvpn::server::deployscript (
             source => [
                 "puppet://$server/modules/site-openvpn/${fqdn}/${name}",
             ],
-            owner => root, group => 0, mode => 0644,
+            owner => root, group => 0, mode => 0755,
 	    ensure => present,
         }
     } 
