@@ -1,10 +1,11 @@
 #
-# oracle module
+# openvpn module
 #
 # Copyright 2007, admin@immerda.ch
 # Copyright 2008, Puzzle ITC GmbH
+# Copyright 2010, Atizo AG
 # Marcel Härry haerry+puppet(at)puzzle.ch
-# Simon Josi josi+puppet(at)puzzle.ch
+# Simon Josi simon.josi+puppet(at)atizo.com
 #
 # This program is free software; you can redistribute 
 # it and/or modify it under the terms of the GNU 
@@ -13,11 +14,5 @@
 #
 
 class openvpn {
-    case $operatingsystem {
-        openbsd: { include openvpn::server::openbsd }
-        default: { include openvpn::server }
-    }
-    if $use_munin {
-    #    include openvpn::munin
-    }
+  include openvpn::server
 }
